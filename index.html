@@ -1,0 +1,1797 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dvs Glasses - Óptica de Calidad</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+    <style>
+        /* RESET Y ESTILOS GENERALES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #0a4a7c;
+            --secondary: #f39c12;
+            --accent: #e74c3c;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --gray: #6c757d;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+            border-color: var(--secondary);
+        }
+
+        .btn-secondary:hover {
+            color: var(--secondary);
+        }
+
+        .btn-sm {
+            padding: 8px 16px;
+            font-size: 0.9rem;
+        }
+
+        /* HEADER */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin: 0 15px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .header-icons {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-icons i {
+            margin-left: 20px;
+            font-size: 1.3rem;
+            color: var(--dark);
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .header-icons i:hover {
+            color: var(--primary);
+        }
+
+        .cart-count {
+            background: var(--accent);
+            color: white;
+            font-size: 0.7rem;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            top: -10px;
+            right: 8px;
+        }
+
+        /* Menú móvil */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 70px;
+            left: -100%;
+            width: 80%;
+            height: calc(100vh - 70px);
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+            z-index: 999;
+        }
+
+        .mobile-menu.active {
+            left: 0;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            padding: 20px;
+        }
+
+        .mobile-menu ul li {
+            margin: 20px 0;
+        }
+
+        .mobile-menu ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-size: 1.2rem;
+            font-weight: 600;
+            display: block;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 70px);
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 998;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(rgba(10, 74, 124, 0.8), rgba(10, 74, 124, 0.9)), url('https://images.unsplash.com/photo-1611252872657-6d3c3d5d7a10?ixlib=rb-4.0.3') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        /* FEATURES SECTION */
+        .features {
+            background: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 40px 20px;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            background: #f8f9fa;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        /* PRODUCTS SECTION */
+        .filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            background: #e9ecef;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-img {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.1);
+        }
+
+        .product-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-category {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .product-name {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        .product-rating {
+            color: #ffc107;
+            margin-bottom: 15px;
+        }
+
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* ABOUT SECTION */
+        .about {
+            background: linear-gradient(to right, white 50%, var(--primary) 50%);
+        }
+
+        .about-container {
+            display: flex;
+            min-height: 500px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-content {
+            flex: 1;
+            padding: 50px;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .about-content h2 {
+            color: var(--primary);
+            margin-bottom: 25px;
+        }
+
+        .about-content p {
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .about-features {
+            margin: 25px 0;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .about-feature i {
+            color: var(--secondary);
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        .about-image {
+            flex: 1;
+            background: url('https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixlib=rb-4.0.3') no-repeat center center/cover;
+        }
+
+        /* TESTIMONIALS SECTION */
+        .testimonials {
+            background: #f8f9fa;
+        }
+
+        .testimonials-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin: 20px;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--dark);
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .testimonial-text::before,
+        .testimonial-text::after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--secondary);
+            opacity: 0.3;
+            position: absolute;
+        }
+
+        .testimonial-text::before {
+            top: -20px;
+            left: -10px;
+        }
+
+        .testimonial-text::after {
+            bottom: -40px;
+            right: -10px;
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .client-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 20px;
+            border: 3px solid var(--secondary);
+        }
+
+        .client-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .client-details h4 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .client-details p {
+            color: var(--gray);
+        }
+
+        /* NEWSLETTER SECTION */
+        .newsletter {
+            background: linear-gradient(to right, var(--primary), #0d5a9c);
+            color: white;
+            text-align: center;
+            padding: 70px 0;
+        }
+
+        .newsletter h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+
+        .subscribe-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .subscribe-form input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .subscribe-form button {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 0 30px;
+            border-radius: 0 30px 30px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .subscribe-form button:hover {
+            background: #e67e22;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding-top: 70px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+        }
+
+        .footer-col p {
+            margin-bottom: 20px;
+            color: #bbb;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: #bbb;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+            text-align: center;
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+
+        /* MODALES */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 10000;
+            overflow: auto;
+        }
+
+        .modal-content {
+            background: white;
+            margin: 5% auto;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: modalOpen 0.5s;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--dark);
+            transition: color 0.3s;
+        }
+
+        .close-btn:hover {
+            color: var(--accent);
+        }
+
+        .modal-header {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .modal-header h2 {
+            color: var(--primary);
+        }
+
+        .modal-body {
+            padding: 20px;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+
+        .cart-items {
+            list-style: none;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item-img {
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            border-radius: 5px;
+            margin-right: 20px;
+        }
+
+        .cart-item-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .cart-item-price {
+            color: var(--secondary);
+            font-weight: 700;
+        }
+
+        .cart-item-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            background: #f1f1f1;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .quantity {
+            margin: 0 10px;
+            font-size: 1.1rem;
+        }
+
+        .remove-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .remove-btn:hover {
+            background: #c0392b;
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background: #f8f9fa;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .cart-empty {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .cart-empty i {
+            font-size: 3rem;
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .cart-actions {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        /* Galería de productos */
+        .product-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .gallery-item {
+            border-radius: 5px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Detalles adicionales de contacto */
+        .contact-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .contact-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .contact-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .contact-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .contact-card p {
+            margin-bottom: 10px;
+        }
+
+        .social-contact {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+            gap: 15px;
+        }
+
+        .social-contact a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .social-contact a:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        /* ANIMACIONES */
+        @keyframes modalOpen {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            
+            .about-container {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                height: 400px;
+            }
+
+            .product-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .subscribe-form {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .subscribe-form input,
+            .subscribe-form button {
+                border-radius: 30px;
+                width: 100%;
+            }
+
+            .cart-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .cart-item-img {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+
+            .cart-item-actions {
+                margin-top: 15px;
+                justify-content: center;
+            }
+
+            .cart-actions {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .cart-actions .btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+
+            .filters {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .product-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>Dvs <span>Glasses</span></h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="header-icons">
+                <i class="fas fa-search"></i>
+                <i class="fas fa-user"></i>
+                <i class="fas fa-shopping-cart" id="cart-icon">
+                    <span class="cart-count">0</span>
+                </i>
+            </div>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+        <!-- Menú móvil -->
+        <div class="mobile-menu" id="mobile-nav">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+        <div class="overlay" id="overlay"></div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="inicio">
+        <div class="container hero-content">
+            <h1>Ver el mundo con claridad</h1>
+            <p>Descubre nuestra colección premium de gafas que combinan estilo, comodidad y tecnología de vanguardia para una visión perfecta.</p>
+            <div class="hero-btns">
+                <a href="#productos" class="btn">Ver Colección</a>
+                <a href="#nosotros" class="btn btn-secondary">Nuestra Historia</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>¿Por Qué Elegirnos?</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-glasses"></i>
+                    </div>
+                    <h3>Calidad Premium</h3>
+                    <p>Materiales de primera calidad que garantizan durabilidad y comodidad.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Protección UV</h3>
+                    <p>Lentes con protección 100% UV para cuidar tus ojos en cualquier situación.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Envío Gratis</h3>
+                    <p>Envio gratuito a todo el país en compras superiores a $50.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Soporte 24/7</h3>
+                    <p>Nuestro equipo de atención al cliente está siempre disponible para ayudarte.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS SECTION -->
+    <section class="products" id="productos">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestra Colección</h2>
+            </div>
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="gafas-sol">Gafas de Sol</button>
+                <button class="filter-btn" data-filter="gafas-lectura">Gafas de Lectura</button>
+                <button class="filter-btn" data-filter="gafas-opticas">Gafas Ópticas</button>
+                <button class="filter-btn" data-filter="gafas-progresivas">Gafas Progresivas</button>
+            </div>
+            <div class="products-grid" id="products-container">
+                <!-- Los productos se generarán con JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about" id="nosotros">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestra Historia</h2>
+            </div>
+            <div class="about-container">
+                <div class="about-content">
+                    <h2>Dvs Glasses: Más de 20 años de excelencia óptica</h2>
+                    <p>Fundada en el año 2000, Dvs Glasses nació con la misión de ofrecer gafas de alta calidad a precios accesibles, combinando diseño moderno con tecnología avanzada.</p>
+                    <p>Hoy, con más de 50 tiendas en todo el país, seguimos comprometidos con nuestra visión inicial: ayudar a las personas a ver el mundo con claridad y estilo.</p>
+                    
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Más de 1 millón de clientes satisfechos</p>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Certificación internacional de calidad</p>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Premio a la mejor innovación óptica 2023</p>
+                        </div>
+                    </div>
+                    
+                    <a href="#contacto" class="btn">Contáctanos</a>
+                </div>
+                <div class="about-image"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="testimonials" id="testimonios">
+        <div class="container">
+            <div class="section-title">
+                <h2>Lo Que Dicen Nuestros Clientes</h2>
+            </div>
+            <div class="testimonials-container">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Las gafas de Dvs son simplemente increíbles. No solo son elegantes y modernas, sino que también son extremadamente cómodas. Desde que las uso, mis dolores de cabeza han desaparecido por completo.</p>
+                    <div class="client-info">
+                        <div class="client-img">
+                            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Cliente satisfecho">
+                        </div>
+                        <div class="client-details">
+                            <h4>María Rodríguez</h4>
+                            <p>Cliente desde 2018</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT DETAILS SECTION -->
+    <section id="contacto">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contáctanos</h2>
+            </div>
+            <div class="contact-details">
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Dirección</h3>
+                    <p>Av. Cecilio del Valle 638, Electricistas, 29020 Tuxtla Gutiérrez, Chis.</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>Teléfono</h3>
+                    <p>+52 961 209 1656</p>
+                    <p>Lun-Vie: 9:00 - 18:00</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>info@dvsglasses.com</p>
+                    <p>ventas@dvsglasses.com</p>
+                    <div class="social-contact">
+                        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWSLETTER SECTION -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Únete a Nuestro Newsletter</h2>
+            <p>Recibe ofertas exclusivas, nuevos lanzamientos y consejos para el cuidado de tus lentes.</p>
+            <form class="subscribe-form">
+                <input type="email" placeholder="Tu correo electrónico" required>
+                <button type="submit">Suscribirse</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Dvs Glasses</h3>
+                    <p>Tu visión es nuestra prioridad. Ofrecemos las mejores gafas con tecnología avanzada y diseños exclusivos.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=100075891206388" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/dvs_glasses?igsh=ZHY4bDdjd3N3aGRu" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#productos">Productos</a></li>
+                        <li><a href="#nosotros">Sobre Nosotros</a></li>
+                        <li><a href="#testimonios">Testimonios</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Categorías</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" data-filter="gafas-sol">Gafas de Sol</a></li>
+                        <li><a href="#" data-filter="gafas-lectura">Gafas de Lectura</a></li>
+                        <li><a href="#" data-filter="gafas-opticas">Gafas Ópticas</a></li>
+                        <li><a href="#" data-filter="gafas-progresivas">Gafas Progresivas</a></li>
+                        <li><a href="#">Accesorios</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contacto</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Av. Cecilio del Valle 638, Electricistas, 29020 Tuxtla Gutiérrez, Chis.</p>
+                    <p><i class="fas fa-phone"></i> +52 961 209 1656</p>
+                    <p><i class="fas fa-envelope"></i> info@dvsglasses.com</p>
+                    <p><i class="fas fa-clock"></i> Lun-Vie: 9:00 - 18:00</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Dvs Glasses. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL DEL CARRITO -->
+    <div class="modal" id="cart-modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-cart">&times;</span>
+            <div class="modal-header">
+                <h2>Tu Carrito de Compras</h2>
+            </div>
+            <div class="modal-body">
+                <ul class="cart-items" id="cart-items-container">
+                    <!-- Los elementos del carrito se generarán con JavaScript -->
+                </ul>
+            </div>
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-price">$0.00</span>
+            </div>
+            <div class="cart-actions">
+                <button class="btn btn-secondary" id="continue-shopping">Seguir Comprando</button>
+                <button class="btn">Finalizar Compra</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE DETALLES DEL PRODUCTO -->
+    <div class="modal" id="product-modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-product">&times;</span>
+            <div class="modal-header">
+                <h2 id="modal-product-name">Nombre del Producto</h2>
+            </div>
+            <div class="modal-body">
+                <div class="product-details-container">
+                    <div class="product-details-img">
+                        <img id="modal-product-image" src="" alt="Producto">
+                    </div>
+                    <div class="product-details-info">
+                        <p class="product-category" id="modal-product-category">Categoría</p>
+                        <div class="product-price" id="modal-product-price">$0.00</div>
+                        <div class="product-rating" id="modal-product-rating">★★★★★</div>
+                        <p id="modal-product-description">Descripción del producto...</p>
+                        
+                        <div class="product-actions">
+                            <button class="btn" id="modal-add-to-cart">Añadir al Carrito</button>
+                        </div>
+                        
+                        <div class="product-gallery">
+                            <a href="https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixlib=rb-4.0.3" data-lightbox="product-gallery" class="gallery-item">
+                                <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixlib=rb-4.0.3" alt="Vista 1">
+                            </a>
+                            <a href="https://imgs.search.brave.com/ds9Q4UJZ0t_S7R_U63bz5xiKJw63FxNFsxm0GY8Iue4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9RX05QXzJY/XzY1NzYxMi1DQlQ4/MzE0MDQ1MDgxOF8w/MzIwMjUtRS1rLWxl/bnRlcy1jdWFkcmFk/YXMtZ3JhbmRlcy1s/ZW50ZXMtYXp1bGVz/LWxlbnRlcy1kZS53/ZWJw" data-lightbox="product-gallery" class="gallery-item">
+                                <img src="https://imgs.search.brave.com/ds9Q4UJZ0t_S7R_U63bz5xiKJw63FxNFsxm0GY8Iue4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9RX05QXzJY/XzY1NzYxMi1DQlQ4/MzE0MDQ1MDgxOF8w/MzIwMjUtRS1rLWxl/bnRlcy1jdWFkcmFk/YXMtZ3JhbmRlcy1s/ZW50ZXMtYXp1bGVz/LWxlbnRlcy1kZS53/ZWJw" alt="Vista 2">
+                            </a>
+                            <a href="https://imgs.search.brave.com/9xcberzZf27bDVcmcWH5gjb62Fl_ijaAq_e1w0QrrYU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9oaXBz/LmhlYXJzdGFwcHMu/Y29tL3ZhZGVyLXBy/b2QuczMuYW1hem9u/YXdzLmNvbS8xNjc3/NjY3OTg3LWdhZmFz/LXNvbC1zcG9ydC1v/YWtsZXktNjNmZjJl/NmE0ZTJkZi5qcGc_/Y3JvcD0xeHc6MXho/O2NlbnRlcix0b3Am/cmVzaXplPTk4MDoq" data-lightbox="product-gallery" class="gallery-item">
+                                <img src="https://imgs.search.brave.com/9xcberzZf27bDVcmcWH5gjb62Fl_ijaAq_e1w0QrrYU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9oaXBz/LmhlYXJzdGFwcHMu/Y29tL3ZhZGVyLXBy/b2QuczMuYW1hem9u/YXdzLmNvbS8xNjc3/NjY3OTg3LWdhZmFz/LXNvbC1zcG9ydC1v/YWtsZXktNjNmZjJl/NmE0ZTJkZi5qcGc_/Y3JvcD0xeHc6MXho/O2NlbnRlcix0b3Am/cmVzaXplPTk4MDoq" alt="Vista 3">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <script>
+        // Datos de productos
+        const products = [
+            {
+                id: 1,
+                name: "Gafas Aviador Clásicas",
+                category: "Gafas de Sol",
+                filter: "gafas-sol",
+                price: 129.99,
+                rating: 4.8,
+                image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixlib=rb-4.0.3",
+                tag: "Nuevo",
+                description: "Gafas de sol aviador con protección UV 100%, montura de metal ligero y lentes polarizados para una visión clara y sin reflejos. Perfectas para días soleados."
+            },
+            {
+                id: 2,
+                name: "Lentes Elegance Pro",
+                category: "Gafas de Lectura",
+                filter: "gafas-lectura",
+                price: 159.99,
+                rating: 4.6,
+                image: "https://imgs.search.brave.com/ds9Q4UJZ0t_S7R_U63bz5xiKJw63FxNFsxm0GY8Iue4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9RX05QXzJY/XzY1NzYxMi1DQlQ4/MzE0MDQ1MDgxOF8w/MzIwMjUtRS1rLWxl/bnRlcy1jdWFkcmFk/YXMtZ3JhbmRlcy1s/ZW50ZXMtYXp1bGVz/LWxlbnRlcy1kZS53/ZWJw",
+                tag: "Popular",
+                description: "Gafas de lectura con montura de acetato de alta calidad, lentes anti-reflejo y diseño ergonómico para máxima comodidad durante largas horas de lectura."
+            },
+            {
+                id: 3,
+                name: "Montura Vintage Wood",
+                category: "Gafas Ópticas",
+                filter: "gafas-opticas",
+                price: 189.99,
+                rating: 4.9,
+                image: "https://imgs.search.brave.com/rhYGqSQgng0HWOY54mFfhINsSlGXIHZeVYufnJdun0w/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9OUV9OUF82/MjcwNTktTUxDNDk0/Mzc1NDM1NjJfMDMy/MDIyLU8ud2VicA",
+                tag: "Exclusivo",
+                description: "Montura de madera artesanal con detalles en metal, diseño vintage y lentes de alta definición. Ligera, resistente y con un estilo único que destaca."
+            },
+            {
+                id: 4,
+                name: "Gafas Deportivas Ultra",
+                category: "Gafas de Sol",
+                filter: "gafas-sol",
+                price: 149.99,
+                rating: 4.7,
+                image: "https://imgs.search.brave.com/-DaNgs6S0zobq4FcxAtkKRlhd5WociSaKLy6KlqQYUg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/Ym9sbGUuY29tL2R3/L2ltYWdlL3YyL0JG/SldfUFJEL29uL2Rl/bWFuZHdhcmUuc3Rh/dGljLy0vU2l0ZXMt/Ym9sbGUtbWFzdGVy/LWNhdGFsb2cvZGVm/YXVsdC9kd2FkOWRi/ZDc2L2ltYWdlcy9W/SUNUVVMlMjBTX1Rp/dGFuaXVtJTIwTWF0/dGUtVm9sdCslMjBV/bHRyYXZpb2xldCUy/MFBvbGFyaXplZC0w/MS5qcGc_c3c9OTAw/JnNoPTkwMA",
+                tag: "Oferta",
+                description: "Gafas deportivas con montura flexible y resistente, lentes polarizados y protección UV 400. Diseñadas para actividades al aire libre con máxima seguridad y comodidad."
+            },
+            {
+                id: 5,
+                name: "Lentes Delgado Air",
+                category: "Gafas Progresivas",
+                filter: "gafas-progresivas",
+                price: 219.99,
+                rating: 4.9,
+                image: "https://imgs.search.brave.com/4mi9zlR46orkGSMyC18t3cuQGO4KyRH5_VjT5nQdU4Q/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9odHRw/Mi5tbHN0YXRpYy5j/b20vRF9RX05QXzJY/Xzk1MDg5Ni1NTFU3/NTIwOTcxMjY4OF8w/MzIwMjQtRS53ZWJw",
+                tag: "Nuevo",
+                description: "Gafas progresivas con lentes ultradelgados y tecnología anti-fatiga. Diseño moderno y ligero que se adapta a cualquier estilo de vida activo."
+            },
+            {
+                id: 6,
+                name: "Gafas Cat Eye Elegant",
+                category: "Gafas Ópticas",
+                filter: "gafas-opticas",
+                price: 139.99,
+                rating: 4.5,
+                image: "https://imgs.search.brave.com/qPlfemacVf3rrPO5C1hkg8uqcoz_mSaSnrNi38f4NUE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/c2hvcGlmeS5jb20v/cy9maWxlcy8xLzAw/MzEvMTgxNy8wMTU3/L2ZpbGVzL2dhZmFz/X2NhdF9leWUyXzQ4/MHg0ODAuanBnP3Y9/MTcwMzc3NjM2Nw",
+                tag: "Popular",
+                description: "Montura cat eye con diseño elegante y femenino, disponible en varios colores. Lentes de alta calidad con tratamiento anti-rayaduras y anti-reflejos."
+            },
+            {
+                id: 7,
+                name: "Gafas Rectangular Classic",
+                category: "Gafas Ópticas",
+                filter: "gafas-opticas",
+                price: 169.99,
+                rating: 4.7,
+                image: "https://imgs.search.brave.com/Wk7fkjc3MoVUGaXtykcHNEJgIZuV_KVIt3cXjPZMPTw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NTF3dnRVS0c5Ykwu/anBn",
+                tag: "Nuevo",
+                description: "Diseño rectangular clásico con montura de acetato grueso, ideal para rostros redondos. Lentes con protección blue light para uso prolongado en dispositivos digitales."
+            },
+            {
+                id: 8,
+                name: "Gafas Espejadas Sport",
+                category: "Gafas de Sol",
+                filter: "gafas-sol",
+                price: 179.99,
+                rating: 4.8,
+                image: "https://imgs.search.brave.com/9xcberzZf27bDVcmcWH5gjb62Fl_ijaAq_e1w0QrrYU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9oaXBz/LmhlYXJzdGFwcHMu/Y29tL3ZhZGVyLXBy/b2QuczMuYW1hem9u/YXdzLmNvbS8xNjc3/NjY3OTg3LWdhZmFz/LXNvbC1zcG9ydC1v/YWtsZXktNjNmZjJl/NmE0ZTJkZi5qcGc_/Y3JvcD0xeHc6MXho/O2NlbnRlcix0b3Am/cmVzaXplPTk4MDoq",
+                tag: "Popular",
+                description: "Gafas de sol espejadas con montura deportiva y lentes polarizados. Protección UV 400 y diseño aerodinámico para actividades al aire libre."
+            }
+        ];
+
+        // Variables globales
+        let cart = [];
+        let currentProduct = null;
+
+        // Elementos del DOM
+        const mobileMenuBtn = document.getElementById('mobile-menu');
+        const mobileNav = document.getElementById('mobile-nav');
+        const overlay = document.getElementById('overlay');
+        const cartIcon = document.getElementById('cart-icon');
+        const cartModal = document.getElementById('cart-modal');
+        const closeCart = document.getElementById('close-cart');
+        const continueShopping = document.getElementById('continue-shopping');
+        const productsContainer = document.getElementById('products-container');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const productModal = document.getElementById('product-modal');
+        const closeProduct = document.getElementById('close-product');
+
+        // Función para renderizar productos
+        function renderProducts(filter = 'all') {
+            productsContainer.innerHTML = '';
+            
+            const filteredProducts = filter === 'all' 
+                ? products 
+                : products.filter(p => p.filter === filter);
+            
+            filteredProducts.forEach(product => {
+                const ratingStars = '★'.repeat(Math.floor(product.rating)) + '☆'.repeat(5 - Math.floor(product.rating));
+                
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.innerHTML = `
+                    <div class="product-img">
+                        <img src="${product.image}" alt="${product.name}">
+                        <span class="product-tag">${product.tag}</span>
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">${product.category}</p>
+                        <h3 class="product-name">${product.name}</h3>
+                        <div class="product-price">$${product.price.toFixed(2)}</div>
+                        <div class="product-rating">${ratingStars} (${product.rating})</div>
+                        <div class="product-actions">
+                            <button class="btn" onclick="addToCart(${product.id})">Añadir al Carrito</button>
+                            <button class="btn btn-secondary" onclick="showProductDetails(${product.id})">Ver Detalles</button>
+                        </div>
+                    </div>
+                `;
+                
+                productsContainer.appendChild(productCard);
+            });
+        }
+
+        // Mostrar detalles del producto
+        function showProductDetails(productId) {
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                currentProduct = product;
+                const ratingStars = '★'.repeat(Math.floor(product.rating)) + '☆'.repeat(5 - Math.floor(product.rating));
+                
+                document.getElementById('modal-product-name').textContent = product.name;
+                document.getElementById('modal-product-image').src = product.image;
+                document.getElementById('modal-product-category').textContent = product.category;
+                document.getElementById('modal-product-price').textContent = `$${product.price.toFixed(2)}`;
+                document.getElementById('modal-product-rating').textContent = ratingStars;
+                document.getElementById('modal-product-description').textContent = product.description;
+                
+                productModal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        // Carrito de compras
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                // Verificar si el producto ya está en el carrito
+                const existingItem = cart.find(item => item.id === product.id);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        ...product,
+                        quantity: 1
+                    });
+                }
+                
+                updateCartCount();
+                showNotification(`¡${product.name} añadido al carrito!`);
+            }
+        }
+        
+        function updateCartCount() {
+            const cartCount = document.querySelector('.cart-count');
+            cartCount.textContent = cart.reduce((total, item) => total + item.quantity, 0);
+        }
+        
+        function renderCartItems() {
+            const cartItemsContainer = document.getElementById('cart-items-container');
+            const cartTotalPrice = document.getElementById('cart-total-price');
+            
+            cartItemsContainer.innerHTML = '';
+            
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = `
+                    <div class="cart-empty">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h3>Tu carrito está vacío</h3>
+                        <p>Agrega productos para continuar</p>
+                    </div>
+                `;
+                cartTotalPrice.textContent = '$0.00';
+                return;
+            }
+            
+            let total = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
+                const cartItem = document.createElement('li');
+                cartItem.className = 'cart-item';
+                cartItem.innerHTML = `
+                    <div class="cart-item-img">
+                        <img src="${item.image}" alt="${item.name}">
+                    </div>
+                    <div class="cart-item-info">
+                        <h3 class="cart-item-name">${item.name}</h3>
+                        <div class="cart-item-price">$${item.price.toFixed(2)}</div>
+                    </div>
+                    <div class="cart-item-actions">
+                        <div class="quantity-control">
+                            <button class="quantity-btn" onclick="updateQuantity(${item.id}, -1)">-</button>
+                            <span class="quantity">${item.quantity}</span>
+                            <button class="quantity-btn" onclick="updateQuantity(${item.id}, 1)">+</button>
+                        </div>
+                        <button class="remove-btn" onclick="removeFromCart(${item.id})">
+                            <i class="fas fa-trash"></i> Eliminar
+                        </button>
+                    </div>
+                `;
+                
+                cartItemsContainer.appendChild(cartItem);
+            });
+            
+            cartTotalPrice.textContent = `$${total.toFixed(2)}`;
+        }
+        
+        function updateQuantity(productId, change) {
+            const item = cart.find(i => i.id === productId);
+            if (item) {
+                item.quantity += change;
+                
+                if (item.quantity <= 0) {
+                    cart = cart.filter(i => i.id !== productId);
+                }
+                
+                updateCartCount();
+                renderCartItems();
+            }
+        }
+        
+        function removeFromCart(productId) {
+            cart = cart.filter(i => i.id !== productId);
+            updateCartCount();
+            renderCartItems();
+            showNotification('Producto eliminado del carrito');
+        }
+
+        // Funciones para notificaciones
+        function showNotification(message) {
+            // Crear elemento de notificación
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.textContent = message;
+            notification.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background: var(--secondary);
+                color: white;
+                padding: 15px 25px;
+                border-radius: 5px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                z-index: 10000;
+                animation: slideIn 0.3s, fadeOut 0.5s 2.5s;
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Eliminar notificación después de 3 segundos
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+        
+        // Manejar formulario de newsletter
+        const newsletterForm = document.querySelector('.subscribe-form');
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input').value;
+            
+            if (validateEmail(email)) {
+                showNotification('¡Gracias por suscribirte a nuestro newsletter!');
+                this.reset();
+            } else {
+                showNotification('Por favor, ingresa un correo electrónico válido.');
+            }
+        });
+        
+        function validateEmail(email) {
+            const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email.toLowerCase());
+        }
+        
+        // Inicializar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            renderProducts();
+            
+            // Event listeners para menú móvil
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileNav.classList.toggle('active');
+                overlay.classList.toggle('active');
+                document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : 'auto';
+            });
+            
+            overlay.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Event listeners para carrito
+            cartIcon.addEventListener('click', () => {
+                renderCartItems();
+                cartModal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            });
+            
+            closeCart.addEventListener('click', () => {
+                cartModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+            
+            continueShopping.addEventListener('click', () => {
+                cartModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Event listener para cerrar modal de producto
+            closeProduct.addEventListener('click', () => {
+                productModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Event listener para añadir desde modal
+            document.getElementById('modal-add-to-cart').addEventListener('click', () => {
+                if (currentProduct) {
+                    addToCart(currentProduct.id);
+                }
+            });
+            
+            // Filtros de productos
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remover clase activa de todos los botones
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Agregar clase activa al botón clickeado
+                    btn.classList.add('active');
+                    // Filtrar productos
+                    renderProducts(btn.dataset.filter);
+                });
+            });
+            
+            // Enlaces de categorías en el footer
+            document.querySelectorAll('.footer-links a[data-filter]').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const filter = link.dataset.filter;
+                    // Actualizar botones de filtro
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    document.querySelector(`.filter-btn[data-filter="${filter}"]`).classList.add('active');
+                    // Filtrar productos
+                    renderProducts(filter);
+                    // Desplazarse a la sección de productos
+                    document.getElementById('productos').scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+            
+            // Smooth scrolling para enlaces internos
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
+                    
+                    // Cerrar menú móvil si está abierto
+                    mobileNav.classList.remove('active');
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+            });
+            
+            // Configurar lightbox para galería
+            lightbox.option({
+                'resizeDuration': 200,
+                'wrapAround': true,
+                'albumLabel': "Imagen %1 de %2"
+            });
+        });
+        
+        // Agregar estilos de animación para la notificación
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            
+            @keyframes fadeOut {
+                from { opacity: 1; }
+                to { opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
